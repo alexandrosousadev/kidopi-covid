@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\CovidController;
-use Illuminate\Support\Facades\Route;
 
-Route::get('/covid', [CovidController::class, 'index']);
-Route::post('/covid', [CovidController::class, 'fetchData']);
+Route::get('/', [CovidController::class, 'index'])->name('home');
+Route::get('/covid-data/{country}', [CovidController::class, 'getCovidData'])->name('covid.data');
